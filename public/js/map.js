@@ -1,7 +1,6 @@
 
 
 maptilersdk.config.apiKey = mapToken;
-// console.log(mapToken);
 const map = new maptilersdk.Map({
   
     container: "map",
@@ -15,8 +14,3 @@ const map = new maptilersdk.Map({
   .setPopup(new maptilersdk.Popup().setHTML(`<h4>${listing.location}</h4><p>Exact Location provided after booking </p>`))
   .addTo(map);
 
-//  console.log(coordinates);
-
-// const marker = new maptilersdk.Marker()
-//   .setLngLat([12.550343, 55.665957])
-//   .addTo(map);

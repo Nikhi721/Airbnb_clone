@@ -17,20 +17,16 @@ module.exports.renderNewForm = async (req, res) => {
 
 // show route
 module.exports.showLisitng = async (req, res) => {
-  let { id } = req.params;
-  const listing = await Listing.findById(id)
-    .populate({
-      path: "reviews",
-      populate: {
-        path: "author",
-      },
-    })
-    .populate("owner");
-  if (!listing) {
-    req.flash("error", "Listing you request that does'nt exists");
-    return res.redirect("/listings");
-  }
-  //  console.log(listing);
+   let {id} =req.params;
+    const  listing = await Listing.findById(id).populate({path:"reviews",
+      populate:{
+         path:"author"
+      }
+    }).populate("owner");
+    if(!listing){
+       req.flash("error","Listing you request that does'nt exists");
+       return res.redirect("/listings");
+    }
   res.render("listings/show.ejs", { listing });
 };
 
